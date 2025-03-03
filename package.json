@@ -1,0 +1,77 @@
+{
+    "name": "sentiment-analysis-app",
+    "version": "1.0.0",
+    "description": "Aplikacja do analizy sentymentu tekstu.",
+    "scripts": {
+        "start": "tsc && node dist/main.js",
+        "build": "tsc",
+        "test": "vitest",
+        "test:watch": "vitest --watch",
+        "coverage": "vitest --coverage",
+        "lint": "eslint . --ext .ts",
+        "format": "prettier --write .",
+        "prepare": "husky install",
+        "build:scss": "sass styles.scss styles.css --style=compressed",
+        "watch:scss": "sass --watch styles.scss styles.css --style=compressed"
+    },
+    "dependencies": {
+        "sass": "^1.85.1",
+        "typescript": "^5.0.0"
+    },
+    "devDependencies": {
+        "@types/jest": "^29.0.0",
+        "@types/node": "^22.13.8",
+        "@typescript-eslint/eslint-plugin": "^6.0.0",
+        "@typescript-eslint/parser": "^6.0.0",
+        "@vitest/coverage-v8": "^3.0.7",
+        "eslint": "^8.0.0",
+        "husky": "^8.0.0",
+        "prettier": "^3.0.0",
+        "vitest": "^3.0.7"
+    },
+    "eslintConfig": {
+        "env": {
+            "browser": true,
+            "es2021": true
+        },
+        "extends": [
+            "eslint:recommended",
+            "plugin:@typescript-eslint/recommended"
+        ],
+        "parser": "@typescript-eslint/parser",
+        "parserOptions": {
+            "ecmaVersion": "latest",
+            "sourceType": "module"
+        },
+        "plugins": [
+            "@typescript-eslint"
+        ],
+        "rules": {
+            "indent": [
+                "error",
+                2
+            ],
+            "quotes": [
+                "error",
+                "double"
+            ],
+            "semi": [
+                "error",
+                "always"
+            ],
+            "@typescript-eslint/no-explicit-any": "warn",
+            "@typescript-eslint/explicit-module-boundary-types": "off"
+        }
+    },
+    "prettier": {
+        "semi": true,
+        "singleQuote": false,
+        "tabWidth": 2,
+        "trailingComma": "es5"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "npm run lint && npm run format"
+        }
+    }
+}
