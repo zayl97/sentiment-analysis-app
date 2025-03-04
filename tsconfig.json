@@ -9,14 +9,23 @@
         "forceConsistentCasingInFileNames": true,
         "skipLibCheck": true,
         "moduleResolution": "node",
+        "resolveJsonModule": true,
         "esModuleInterop": true,
         "types": [
             "vitest/globals"
-        ]
+        ],
+        "baseUrl": "./src",
+        "paths": {
+            "*": [
+                "types/*"
+            ]
+        }
     },
     "include": [
         "*.ts",
         "tests/**/*.ts",
+        "src",
+        "src/types",
         "src/scripts/script.ts",
         "src/scripts/sentimentAnalysis.ts"
     ],

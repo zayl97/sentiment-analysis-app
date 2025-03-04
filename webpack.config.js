@@ -26,6 +26,13 @@ module.exports = {
         rules: [
             { test: /\.ts$/, use: 'ts-loader', exclude: /node_modules/ },
             { test: /\.scss$/, use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"] },
+            {
+                test: /\.svg$/,
+                type: 'asset/resource',
+                generator: {
+                    filename: 'images/[name].[hash][ext]',
+                }
+            }
         ],
     },
     resolve: {

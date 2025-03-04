@@ -37,3 +37,10 @@ sentiment-modal::part(close):hover {
 sentiment-modal[hidden]::part(modal) {
     display: none !important;
 }
+
+sentiment-modal::part(icon) {
+    width: 80px;
+    height: 80px;
+    display: block;
+    margin: 0 auto 10px;
+}

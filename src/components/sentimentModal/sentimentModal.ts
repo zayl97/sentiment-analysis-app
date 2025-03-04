@@ -1,5 +1,10 @@
+import negativeIcon from "../../images/negative.svg";
+import neutralIcon from "../../images/neutral.svg";
+import positiveIcon from "../../images/positive.svg";
+
+console.log(negativeIcon, neutralIcon, positiveIcon);
 class SentimentModal extends HTMLElement {
-  label: string = "Neutral";
+  label: string;
 
   constructor() {
     super();
@@ -16,6 +21,17 @@ class SentimentModal extends HTMLElement {
     if (name === 'label' && newValue !== null) {
       this.label = newValue;
       this.render();
+    }
+  }
+
+  getIcon() {
+    switch (this.label) {
+      case "Positive":
+        return positiveIcon;
+      case "Negative":
+        return negativeIcon;
+      default:
+        return neutralIcon;
     }
   }
 
@@ -41,6 +57,7 @@ class SentimentModal extends HTMLElement {
         <div class="modal" part="modal">
             <div class="modal-content" part="content">
                 <button class="modal-close" part="close">&times;</button>
+                <img part="icon" src="${this.getIcon()}" alt="${this.label} icon">
                 <p>${this.getMessage()}</p>
             </div>
         </div>
