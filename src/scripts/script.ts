@@ -3,28 +3,24 @@ import SentimentAnalysis from "./sentimentAnalysis";
 const apiKey = "";
 const sentimentAnalyzer = new SentimentAnalysis(apiKey);
 
-const textInput = document.getElementById("text-input") as HTMLInputElement;
-const analyzeButton = document.getElementById(
-  "analyze-button"
-) as HTMLButtonElement;
-const resultModal = document.getElementById("result-modal") as HTMLDivElement;
-const resultText = document.getElementById(
-  "result-text"
-) as HTMLParagraphElement;
-const closeModal = document.getElementById("close-modal") as HTMLButtonElement;
+const textInput = document.getElementById("inputText") as HTMLTextAreaElement;
+const analyzeButton = document.getElementById("analyzeBtn") as HTMLButtonElement;
+const sentimentModal = document.getElementById("sentimentModal") as any;
 
 analyzeButton.addEventListener("click", async () => {
+  sentimentModal.showModal(); // temporary
   const text = textInput.value.trim();
+  if (!text) return;
 
   try {
     const sentiment = await sentimentAnalyzer.analyzeText(text);
-    resultText.innerText = `Analysis result: ${sentiment}`;
-    resultModal.style.display = "block";
+    sentimentModal.setAttribute("label", sentiment);
+    sentimentModal.showModal();
   } catch (error: any) {
     alert(error.message);
   }
 });
 
-closeModal.addEventListener("click", () => {
-  resultModal.style.display = "none";
+window.addEventListener("DOMContentLoaded", () => {
+  sentimentModal.hideModal();
 });

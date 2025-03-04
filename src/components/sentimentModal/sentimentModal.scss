@@ -1,4 +1,4 @@
-.modal {
+sentiment-modal::part(modal) {
     display: flex;
     position: fixed;
     top: 0;
@@ -8,28 +8,32 @@
     background: rgba(0, 0, 0, 0.5);
     justify-content: center;
     align-items: center;
+}
 
-    .modal-content {
-        background: white;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        text-align: center;
-        width: 400px;
-        position: relative;
+sentiment-modal::part(content) {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 400px;
+    position: relative;
+}
 
-        .modal-close {
-            position: absolute;
-            top: 20px;
-            right: 10px;
-            background: none;
-            border: none;
-            font-size: 20px;
-            cursor: pointer;
+sentiment-modal::part(close) {
+    position: absolute;
+    top: 20px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
 
-            &:hover {
-                color: #ff0000;
-            }
-        }
-    }
+sentiment-modal::part(close):hover {
+    color: red;
+}
+
+sentiment-modal[hidden]::part(modal) {
+    display: none !important;
 }
