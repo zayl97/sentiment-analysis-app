@@ -1,14 +1,12 @@
 import SentimentAnalysis from "./sentimentAnalysis";
 
-const apiKey = "";
-const sentimentAnalyzer = new SentimentAnalysis(apiKey);
+const sentimentAnalyzer = new SentimentAnalysis();
 
 const textInput = document.getElementById("inputText") as HTMLTextAreaElement;
 const analyzeButton = document.getElementById("analyzeBtn") as HTMLButtonElement;
 const sentimentModal = document.getElementById("sentimentModal") as any;
 
 analyzeButton.addEventListener("click", async () => {
-  sentimentModal.showModal(); // temporary
   const text = textInput.value.trim();
   if (!text) return;
 

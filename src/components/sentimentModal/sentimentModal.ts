@@ -26,9 +26,9 @@ class SentimentModal extends HTMLElement {
 
   getIcon() {
     switch (this.label) {
-      case "Positive":
+      case "POSITIVE":
         return positiveIcon;
-      case "Negative":
+      case "NEGATIVE":
         return negativeIcon;
       default:
         return neutralIcon;
@@ -37,9 +37,9 @@ class SentimentModal extends HTMLElement {
 
   getMessage() {
     const messages: Record<string, string> = {
-      Negative: 'The sentiment is negative. Please review the content.',
-      Neutral: 'The sentiment is neutral. No strong emotions detected.',
-      Positive: 'The sentiment is positive. Great job!'
+      NEGATIVE: 'The sentiment is negative. Please review the content.',
+      NEUTRAL: 'The sentiment is neutral. No strong emotions detected.',
+      POSITIVE: 'The sentiment is positive. Great job!'
     };
     return messages[this.label] || messages['Neutral'];
   }

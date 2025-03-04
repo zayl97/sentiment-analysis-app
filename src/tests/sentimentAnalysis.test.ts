@@ -5,7 +5,7 @@ describe("SentimentAnalysis", () => {
   let sentimentAnalyzer: SentimentAnalysis;
 
   beforeEach(() => {
-    sentimentAnalyzer = new SentimentAnalysis("FAKE_API_KEY");
+    sentimentAnalyzer = new SentimentAnalysis();
   });
 
   it("should analyze positive sentiment correctly", async () => {
