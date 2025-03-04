@@ -11,8 +11,8 @@
         "lint": "eslint . --ext .ts",
         "format": "prettier --write .",
         "prepare": "husky install",
-        "build:scss": "sass styles.scss styles.css --style=compressed",
-        "watch:scss": "sass --watch styles.scss styles.css --style=compressed"
+        "build:scss": "sass styles.scss styles.css --style=compressed --no-source-map",
+        "watch:scss": "sass --watch styles.scss styles.css --style=compressed --no-source-map"
     },
     "dependencies": {
         "sass": "^1.85.1",

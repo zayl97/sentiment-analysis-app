@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, it } from "vitest";
-import SentimentAnalysis from "./sentimentAnalysis";
+import SentimentAnalysis from "../scripts/sentimentAnalysis";
 
 describe("SentimentAnalysis", () => {
   let sentimentAnalyzer: SentimentAnalysis;
