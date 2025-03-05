@@ -28,7 +28,7 @@ npm run dev
 
 ## Running the Application
 
-Simply open `index.html` in a browser or run locally using following command:
+Simply open `index.html` from `dist/` directory in a browser or run locally using following command:
 ```sh
 npm run dev
 ```
