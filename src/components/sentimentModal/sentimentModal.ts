@@ -3,8 +3,11 @@ import neutralIcon from "../../images/neutral.svg";
 import positiveIcon from "../../images/positive.svg";
 
 console.log(negativeIcon, neutralIcon, positiveIcon);
+
 class SentimentModal extends HTMLElement {
   label: string;
+  private modal?: HTMLDivElement;
+  private closeButton?: HTMLButtonElement;
 
   constructor() {
     super();
@@ -22,6 +25,14 @@ class SentimentModal extends HTMLElement {
       this.label = newValue;
       this.render();
     }
+  }
+
+  connectedCallback() {
+    this.setupEventListeners();
+  }
+
+  disconnectedCallback() {
+    this.cleanupEventListeners();
   }
 
   getIcon() {
@@ -63,13 +74,36 @@ class SentimentModal extends HTMLElement {
         </div>
     `;
 
-    const modal = this.shadowRoot!.querySelector('.modal') as HTMLDivElement;
-    const closeButton = this.shadowRoot!.querySelector('.modal-close') as HTMLButtonElement;
+    this.modal = this.shadowRoot!.querySelector('.modal') as HTMLDivElement;
+    this.closeButton = this.shadowRoot!.querySelector('.modal-close') as HTMLButtonElement;
 
-    closeButton.addEventListener('click', () => this.hideModal());
-    modal.addEventListener('click', (event) => {
-        if (event.target === modal) this.hideModal();
-    });
+    this.setupEventListeners();
+  }
+
+  private setupEventListeners() {
+    this.cleanupEventListeners();
+
+    if (this.closeButton) {
+      this.closeButton.addEventListener('click', this.hideModal.bind(this));
+    }
+
+    if (this.modal) {
+      this.modal.addEventListener('click', (event) => {
+        if (event.target === this.modal) this.hideModal();
+      });
+    }
+  }
+
+  private cleanupEventListeners() {
+    if (this.closeButton) {
+      this.closeButton.removeEventListener('click', this.hideModal.bind(this));
+    }
+
+    if (this.modal) {
+      this.modal.removeEventListener('click', (event) => {
+        if (event.target === this.modal) this.hideModal();
+      });
+    }
   }
 }
 

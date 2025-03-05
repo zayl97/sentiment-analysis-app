@@ -43,14 +43,12 @@ class SentimentAnalysis {
           throw new Error("Invalid API response");
       }
   
-      // Find the highest scoring label
       const topResult = response[0].reduce((prev: any, curr: any) => 
           curr.score > prev.score ? curr : prev
       );
   
-      // Apply threshold to classify Neutral cases
       if (topResult.score > 0.7) {
-          return topResult.label.toUpperCase(); // Ensure consistent formatting
+          return topResult.label.toUpperCase();
       } else {
           return "NEUTRAL";
       }

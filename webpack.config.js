@@ -19,6 +19,7 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             template: './src/index.html',
+            favicon: './src/images/favicon.png',
             filename: 'index.html',
         }),
         new MiniCssExtractPlugin({ filename: "styles.css" }),
@@ -29,7 +30,7 @@ module.exports = {
             { test: /\.ts$/, use: 'ts-loader', exclude: /node_modules/ },
             { test: /\.scss$/, use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"] },
             {
-                test: /\.svg$/,
+                test: /\.(svg|png)$/,
                 type: 'asset/resource',
                 generator: {
                     filename: 'images/[name].[hash][ext]',

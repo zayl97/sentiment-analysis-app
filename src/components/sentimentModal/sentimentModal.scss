@@ -22,7 +22,7 @@ sentiment-modal::part(content) {
 
 sentiment-modal::part(close) {
     position: absolute;
-    top: 20px;
+    top: 10px;
     right: 10px;
     background: none;
     border: none;
@@ -43,4 +43,10 @@ sentiment-modal::part(icon) {
     height: 80px;
     display: block;
     margin: 0 auto 10px;
+}
+
+@media (max-width: 900px) {
+    sentiment-modal::part(content) {
+        width: 200px;
+    }
 }

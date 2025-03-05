@@ -5,14 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sentiment Analysis</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Delius&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <h1>Sentiment Analysis</h1>
-        <textarea id="inputText" placeholder="Enter text to analyze (max 500 characters)..."></textarea>
-        <button id="analyzeBtn">Analizuj</button>
-        <p id="errorMessage" class="error-message"></p>
-        <sentiment-modal id="sentimentModal"></sentiment-modal>
+    <div class="wrapper">
+        <div class="container">
+            <h1 class="title">Sentiment Analysis</h1>
+            <div class="app-container">
+                <textarea id="inputText" placeholder="Enter text to analyze (max 500 characters)..."></textarea>
+                <span id="errorMessage"></span>
+                <button id="analyzeBtn" disabled>Analyze</button>
+                <p id="errorMessage" class="error-message"></p>
+            </div>
+            <sentiment-modal id="sentimentModal"></sentiment-modal>
+        </div>
     </div>
 </body>
 </html>
