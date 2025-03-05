@@ -2,8 +2,6 @@ import negativeIcon from "../../images/negative.svg";
 import neutralIcon from "../../images/neutral.svg";
 import positiveIcon from "../../images/positive.svg";
 
-console.log(negativeIcon, neutralIcon, positiveIcon);
-
 class SentimentModal extends HTMLElement {
   label: string;
   private modal?: HTMLDivElement;
@@ -108,3 +106,5 @@ class SentimentModal extends HTMLElement {
 }
 
 customElements.define('sentiment-modal', SentimentModal);
+
+export default SentimentModal;
