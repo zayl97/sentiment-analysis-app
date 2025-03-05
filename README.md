@@ -33,6 +33,13 @@ Simply open `index.html` in a browser or run locally using following command:
 npm run dev
 ```
 
+## Testing the Application
+
+To test the application use:
+```sh
+npm run test
+```
+
 ## Project Structure
 ```
 ├── dist
