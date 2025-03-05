@@ -2,10 +2,10 @@ class SentimentAnalysis {
     private apiKey: string;
     private apiUrl: string;
   
-    constructor(apiKey: string) {
-      this.apiKey = apiKey;
+    constructor() {
+      this.apiKey = process.env.HF_API_KEY || "";
       this.apiUrl =
-        "https://api-inference.huggingface.co/models/cardiffnlp/twitter-roberta-base-sentiment";
+        "https://api-inference.huggingface.co/models/distilbert-base-uncased-finetuned-sst-2-english";
     }
   
     async analyzeText(text: string): Promise<string> {
@@ -39,15 +39,19 @@ class SentimentAnalysis {
     }
   
     private parseSentiment(response: any): string {
-      if (!Array.isArray(response) || response.length === 0) {
-        throw new Error("Invalid API response");
+      if (!Array.isArray(response) || response.length === 0 || !Array.isArray(response[0])) {
+          throw new Error("Invalid API response");
       }
   
-      const labels = ["Negative", "Neutral", "Positive"];
-      const scores = response[0].map((item: any) => item.score);
-      const maxIndex = scores.indexOf(Math.max(...scores));
+      const topResult = response[0].reduce((prev: any, curr: any) => 
+          curr.score > prev.score ? curr : prev
+      );
   
-      return labels[maxIndex];
+      if (topResult.score > 0.7) {
+          return topResult.label.toUpperCase();
+      } else {
+          return "NEUTRAL";
+      }
     }
 }
 

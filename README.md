@@ -1,6 +1,6 @@
 # Sentiment Analysis App
 
-A simple web application for sentiment analysis using vanilla TypeScript and SCSS.
+A simple web application for sentiment analysis using vanilla TypeScript, SCSS, Webcomponents, Webpack and Hugging Face API.
 
 ## Installation
 
@@ -14,37 +14,72 @@ A simple web application for sentiment analysis using vanilla TypeScript and SCS
    npm install
    ```
 
-## SCSS Compilation
+## App Compilation
 
-To compile SCSS to CSS, use:
+To compile code of the app, use:
 ```sh
-npm run build:scss
+npm run build
 ```
 
-To watch for changes in SCSS and recompile automatically:
+To watch for changes in app and recompile automatically:
 ```sh
-npm run watch:scss
+npm run dev
 ```
 
 ## Running the Application
 
-Simply open `index.html` in a browser.
+Simply open `index.html` in a browser or run locally using following command:
+```sh
+npm run dev
+```
 
 ## Project Structure
 ```
-├── index.html
-├── styles.scss
-├── styles.css
-├── script.js
+├── dist
+├── node_modules
+├── src/
+│   ├── components/
+│   │   └── modal/
+│   │       ├── sentimentModal.scss
+│   │       └── sentimentModal.ts
+│   ├── images/
+│   │   ├── background.png
+│   │   ├── favicon.png
+│   │   ├── mobile-background.png
+│   │   ├── negative.svg
+│   │   ├── neutral.svg
+│   │   └── positive.svg
+│   ├── scripts/
+│   │   ├── script.ts
+│   │   ├── sentimentAnalysis.ts
+│   │   └── webpackBundle.ts
+│   ├── tests/
+│   │   └── sentimentAnalysis.test.ts
+│   ├── types/
+│   │   └── svg.d.ts
+│   ├── index.html
+│   └── styles.scss
+├── .gitignore
 ├── package.json
-└── README.md
+├── tsconfig.json
+├── webpack.config.js
+├── README.md
+└── vitest.config.js
 ```
 
 ## Technologies Used
 - TypeScript
 - SCSS
+- Webcomponents
+- Webpack
 - Vanilla JavaScript
 - Node.js
+
+## Challenges during coding
+- styling of the Webcomponent
+- configuration of the SCSS to work with Webcomponents
+- proper configuration of the Webpack
+- writing proper tests
 
 ## License
 This project is licensed under the MIT License.

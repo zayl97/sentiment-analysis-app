@@ -1,0 +1,52 @@
+sentiment-modal::part(modal) {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+sentiment-modal::part(content) {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 400px;
+    position: relative;
+}
+
+sentiment-modal::part(close) {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+sentiment-modal::part(close):hover {
+    color: red;
+}
+
+sentiment-modal[hidden]::part(modal) {
+    display: none !important;
+}
+
+sentiment-modal::part(icon) {
+    width: 80px;
+    height: 80px;
+    display: block;
+    margin: 0 auto 10px;
+}
+
+@media (max-width: 900px) {
+    sentiment-modal::part(content) {
+        width: 200px;
+    }
+}
